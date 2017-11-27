@@ -30,7 +30,7 @@ var config = {
     },
     output: {
         filename: '[name].js',
-        path: path.join(__dirname, '.'),
+        path: path.join(__dirname, 'build'),
         sourceMapFilename: '[file].map',
         publicPath: '/'
     },
