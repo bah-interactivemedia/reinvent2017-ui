@@ -17,7 +17,7 @@ export class FooterContainer extends React.Component {
     render() {
         return (
             <div>
-
+                Footer
             </div>
         );
     }
