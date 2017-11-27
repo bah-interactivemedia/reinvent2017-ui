@@ -16,9 +16,11 @@ const propTypes = {
 export class FooterContainer extends React.Component {
     render() {
         return (
-            <div>
-                Footer
-            </div>
+            <footer>
+                <div className="copyright">
+                    &copy;2017 The National Fitness Foundation. All Rights Reserved 
+                </div>
+            </footer>
         );
     }
 }
