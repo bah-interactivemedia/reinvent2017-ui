@@ -18,7 +18,7 @@ export class FooterContainer extends React.Component {
         return (
             <footer>
                 <div className="copyright">
-                    &copy;2017 The National Fitness Foundation. All Rights Reserved 
+                    &copy;2017 The National Fitness Foundation. All Rights Reserved.
                 </div>
             </footer>
         );

@@ -1,5 +1,6 @@
 import AppContainer from './src/js/containers/App';
 import ReportingContainer from './src/js/containers/ReportingContainer';
+import MileRunContainer from './src/js/containers/MileRunContainer';
 import CurlUpsContainer from './src/js/containers/CurlUpsContainer';
 
 import routes from './src/routes';
@@ -13,6 +14,12 @@ export default function routes2({dispatch}) {
     childRoutes[childRoutes.length] = {
         path: '/reports',
         component: ReportingContainer
+    };
+
+    // add Mile
+    childRoutes[childRoutes.length] = {
+        path: '/mileRun',
+        component: MileRunContainer
     };
 
     // add Curlups

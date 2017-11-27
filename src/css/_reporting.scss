@@ -10,15 +10,17 @@
 
 .reporting-item-title {
     font-weight: 400;
-    font-size: 4rem;
+    font-size: 30px;
 }
 
 .reporting-value {
-    font-weight: 600;
-    font-size: 6rem;
+    font-weight: 400;
+    font-size: 40px;
 }
 
 .reporting-donut {
     margin: auto;
+    max-width: 400px;
+    text-align: center;
 }
 

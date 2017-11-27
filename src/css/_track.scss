@@ -1,14 +1,15 @@
 .container-track,
 .container-report {
-    min-height: 60vh;
+    height: auto;
     text-align: center;
+    padding-bottom: 6rem;
 
     p {
         font-size: 24px;
     }
 
     .title {
-        padding: 7rem 0;
+        padding: 6rem 0;
         font-size: 4.8rem;
         font-weight: 200;
     }
@@ -39,11 +40,9 @@
 
 .container-report {
     background-color: $off-white;
-    height: unset;
 
     .title {
         color: $blue;
-        padding: 0;
     }
 }
 
@@ -74,6 +73,27 @@
 
     .student-row {
         margin-bottom: 10px;
+
+        .btn-danger {
+            background-color: $red;
+        }
+    }
+}
+
+.time {
+    margin-bottom: 30px;
+
+    h2 {
+        font-size: 40px;
+        font-weight: 400;
+    }
+}
+
+.start-button-holder {
+    margin-bottom: 30px;
+
+    button {
+        margin-right: 20px;
     }
 }
 
