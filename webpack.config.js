@@ -48,6 +48,7 @@ var config = {
             "react-router-redux": path.resolve('./node_modules/react-router-redux'),
             "redux": path.resolve('./node_modules/redux'),
             "redux-thunk": path.resolve('./node_modules/redux-thunk'),
+            "bootstrap": path.resolve('./node_modules/bootstrap'),
         }
     },
     plugins: [
@@ -93,7 +94,7 @@ var config = {
         loaders: [
             {
                 test: /\.css$/,
-                loader: 'style-loader!css-loader!postcss-loader'
+                loader: 'style-loader!css-loader'
             },
             {
                 test: /\.sass/,
