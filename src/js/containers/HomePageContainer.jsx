@@ -65,9 +65,9 @@ export class HomePageContainer extends React.Component {
                     </div>
                 </div>
                 <div className="container-fluid container-report">
-                    <h1 className="title">
-                        REPORT
-                    </h1>
+                    <h1 className="title">REPORTS</h1>
+                    <p>Visualize results</p>
+                    <Link to="/reports" className="report-link">See performance</Link>
                 </div>
             </div>
         );

@@ -1,3 +1,5 @@
+@import './node_modules/react-vis/dist/style';
+
 $blue: #0A1F38;
 $off-white: #F8F9FA;
 
@@ -13,3 +15,5 @@ $off-white: #F8F9FA;
 @import './report';
 @import './inputSections';
 @import './footer';
+
+@import './reporting.scss';
