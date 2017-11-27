@@ -9,12 +9,51 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import TestSelection from '../components/TestSelection';
+import FitnessTests from '../components/FitnessTests';
+
 const propTypes = {
 
 };
 
 export class HomePageContainer extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            selection: false
+        };
+
+        this.selectedNew = this.selectedNew.bind(this);
+        this.selectedExisting = this.selectedExisting.bind(this);
+    }
+
+    selectedNew() {
+        this.setState({
+            selection: true
+        });
+    }
+
+    selectedExisting(e) {
+        this.setState({
+            selection: true
+        });
+
+        console.log(e);
+    }
+
     render() {
+        let shownActions = (
+            <TestSelection
+                selectedNew={this.selectedNew}
+                selectedExisting={this.selectedExisting} />
+        );
+        if (this.state.selection) {
+            shownActions = (
+                <FitnessTests />
+            );
+        }
+
         return (
             <div>
                 <div className="container-fluid container-track">
@@ -22,32 +61,7 @@ export class HomePageContainer extends React.Component {
                         FITNESS TESTS
                     </h1>
                     <div className="container">
-                        <div className="row">
-                            <div className="col-4">
-                                <Link
-                                    className="track-link"
-                                    to="/" >
-                                    <span className="oi oi-person" title="person" aria-hidden="true"></span>
-                                    <p>Body Composition</p>
-                                </Link>
-                            </div>
-                            <div className="col-4">
-                                <Link
-                                    className="track-link"
-                                    to="/" >
-                                    <span className="oi oi-media-skip-forward" title="media-skip-forward" aria-hidden="true"></span>
-                                    <p>Mile Run</p>
-                                </Link>
-                            </div>
-                            <div className="col-4">
-                                <Link
-                                    className="track-link"
-                                    to="/" >
-                                    <span className="oi oi-data-transfer-upload" title="data-transfer-upload" aria-hidden="true"></span>
-                                    <p>Curl Ups</p>
-                                </Link>
-                            </div>
-                        </div>
+                        {shownActions}
                     </div>
                 </div>
                 <div className="container-fluid container-report">
