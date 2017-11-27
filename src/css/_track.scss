@@ -1,7 +1,33 @@
-.container-track {
-    height: 99vh;
+.container-track,
+.container-report {
+    height: 60vh;
+    text-align: center;
+
+    p {
+        font-size: 24px;
+    }
+
+    .title {
+        padding: 7rem 0;
+        font-size: 4.8rem;
+        font-weight: 200;
+    }
 }
 
-.container-footer {
-    height: 99vh;
+.container-track {
+    background-color: $blue;
+    color: $off-white;
+
+    .track-link {
+        text-decoration: none;
+        color: $off-white;
+    }
+}
+
+.container-report {
+    background-color: $off-white;
+
+    .title {
+        color: $blue;
+    }
 }

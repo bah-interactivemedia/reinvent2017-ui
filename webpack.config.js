@@ -129,6 +129,10 @@ var config = {
                 loader: 'url-loader?limit=500000&mimetype=application/font-ttf&name=fonts/[name].[ext]'
             },
             {
+                test: /\.otf(\?\S*)?$/,
+                loader: 'url-loader?limit=500000&mimetype=application/font-otf&name=fonts/[name].[ext]'
+            },
+            {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader'
