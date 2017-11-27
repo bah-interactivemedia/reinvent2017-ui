@@ -17,7 +17,7 @@ export class NavbarContainer extends React.Component {
     render() {
         return (
             <nav className="navbar navbar-expand-md navbar-light bg-light">
-                <a className="navbar-brand" href="#/">
+                <a className="navbar-brand" href="/">
                     <img className="navbar-icon" src="../../images/Logo.png" height={100} />
                 </a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">

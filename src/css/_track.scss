@@ -1,6 +1,6 @@
 .container-track,
 .container-report {
-    height: 60vh;
+    min-height: 60vh;
     text-align: center;
 
     p {
@@ -45,6 +45,40 @@
     }
 }
 
-.actions-holder {
+.rows-container {
+    .oi {
+        width: 20px;
+        height: 20px;
+        color: white;
+        font-size: 20px;
+    }
 
+    .counter {
+        button {
+            background-color: $blue;
+            border: none;
+        }
+
+        input {
+            width: 40px;
+            text-align: center;
+            margin: 0 5px;
+
+            &::placeholder {
+                color: black;
+            }
+        }
+    }
+
+    .student-row {
+        margin-bottom: 10px;
+    }
+}
+
+.submit-holder {
+    margin-top: 40px;
+
+    .btn-primary {
+        background-color: $yellow;
+    }
 }
