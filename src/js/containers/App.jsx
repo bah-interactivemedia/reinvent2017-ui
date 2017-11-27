@@ -14,18 +14,14 @@ const propTypes = {
 class App extends React.Component {
     render() {
         return (
-            <div className="navigation">
-                <div className="rec-page">
-                    <div className="page-body">
-                        <NavbarContainer />
-                        <div
-                            className="page-content"
-                            id="page-content">
-                            { this.props.children }
-                        </div>
-                        <FooterContainer />
-                    </div>
+            <div className="nff">
+                <NavbarContainer />
+                <div
+                    className="page-content"
+                    id="page-content">
+                    { this.props.children }
                 </div>
+                <FooterContainer />
             </div>
         );
     }
