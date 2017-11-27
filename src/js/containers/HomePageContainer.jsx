@@ -9,6 +9,8 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import ReportingContainer from './ReportingContainer';
+
 import TestSelection from '../components/TestSelection';
 import FitnessTests from '../components/FitnessTests';
 
@@ -30,8 +32,7 @@ export class HomePageContainer extends React.Component {
                 </div>
                 <div className="container-fluid container-report">
                     <h1 className="title">REPORTS</h1>
-                    <p>Visualize results</p>
-                    <Link to="/reports" className="report-link">See performance</Link>
+                    <ReportingContainer />
                 </div>
             </div>
         );
