@@ -1,18 +1,24 @@
+.reporting-section-title {
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+
 .reporting-item {
     font-weight: normal;
     text-align: center;
 }
 
 .reporting-item-title {
-    font-weight: bolder;
-    font-size: -webkit--large;
-    font-size: large;
+    font-weight: 400;
+    font-size: 4rem;
 }
 
 .reporting-value {
-    font-weight: bolder;
-    font-size: -webkit-xxx-large;
-    font-size: xx-large;
+    font-weight: 600;
+    font-size: 6rem;
 }
 
+.reporting-donut {
+    margin: auto;
+}
 
