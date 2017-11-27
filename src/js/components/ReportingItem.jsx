@@ -3,8 +3,8 @@ import React from 'react';
 const ReportingItem = ({title, children}) => {
     return (
         <div className="reporting-item">
-            <h2>{title}</h2>
             {children}
+            <h3 className="reporting-item-title">{title}</h3>
         </div>
     );
 };

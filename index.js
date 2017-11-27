@@ -3,13 +3,17 @@ import {render} from 'react-dom';
 import {Provider} from 'react-redux';
 import {Router, browserHistory} from 'react-router';
 import {syncHistoryWithStore} from 'react-router-redux';
+import routes from './routes';
+import store from './store';
 
-//import './node_modules/bootstrap/dist/css/bootstrap.css';
-import './src/scss/main.scss';
+import './node_modules/bootstrap/dist/css/bootstrap.css';
+const history = syncHistoryWithStore(browserHistory, store);
 
-import App from './src/js/containers/App';
+const childRoutes = routes(store);
 
 render(
-  <App/>,
-  document.getElementById('app')
+    <Provider store={store}>
+        <Router key="rec-app" history={history} children={childRoutes} />
+    </Provider>,
+    document.getElementById('app')
 );
