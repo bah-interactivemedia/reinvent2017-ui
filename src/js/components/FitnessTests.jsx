@@ -16,19 +16,19 @@ export default class FitnessTests extends React.Component {
         return (
             <div className="row">
                 <div className="col-4">
-                    <Link className="track-link" to="/">
+                    <Link className="track-link" to="/bodyComposition">
                         <span className="oi oi-person" title="person" aria-hidden="true"></span>
                         <p>Body Composition</p>
                     </Link>
                 </div>
                 <div className="col-4">
-                    <Link className="track-link" to="/">
+                    <Link className="track-link" to="/mileRun">
                         <span className="oi oi-media-skip-forward" title="media-skip-forward" aria-hidden="true"></span>
                         <p>Mile Run</p>
                     </Link>
                 </div>
                 <div className="col-4">
-                    <Link className="track-link" to="/">
+                    <Link className="track-link" to="/curlUps">
                         <span className="oi oi-data-transfer-upload" title="data-transfer-upload" aria-hidden="true"></span>
                         <p>Curl Ups</p>
                     </Link>

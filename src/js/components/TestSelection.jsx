@@ -6,6 +6,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
+import { Button, ButtonDropdown, ButtonGroup,
+    DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 const propTypes = {
     selectedNew: PropTypes.func,
@@ -13,32 +15,42 @@ const propTypes = {
 };
 
 export default class TestSelection extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            dropdownOpen: false
+        };
+
+        this.toggle = this.toggle.bind(this);
+    }
+
+    toggle() {
+        this.setState({
+            dropdownOpen: !this.state.dropdownOpen
+        });
+    }
+
     render() {
         return (
             <div className="row justify-content-md-center">
                 <div className="col col-lg-3">
-                    <div className="btn-group" role="group" aria-label="Button group with nested dropdown">
-                        <button
-                            type="button"
-                            className="btn btn-secondary"
-                            onClick={(e) => this.props.selectedNew}>
-                            New Test
-                        </button>
-                        <div className="btn-group" role="group">
-                            <button id="btnGroupDrop1" type="button" className="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Continue Test
-                            </button>
-                            <div className="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                <a
-                                    className="dropdown-item"
-                                    href="#"
-                                    onClick={(e) => this.props.selectedExisting(e)}>
-                                    05/20/17
-                                </a>
-                                <a className="dropdown-item" href="#">10/20/16</a>
-                            </div>
-                        </div>
-                    </div>
+                    <ButtonGroup>
+                        <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                            <Button id="caret" color="primary">New Test</Button>
+                            <DropdownToggle caret>
+                                Continue Existing Test
+                            </DropdownToggle>
+                            <DropdownMenu>
+                                <DropdownItem>
+                                    05/20/2017
+                                </DropdownItem>
+                                <DropdownItem>
+                                    10/19/2016
+                                </DropdownItem>
+                            </DropdownMenu>
+                        </ButtonDropdown>
+                    </ButtonGroup>
                 </div>
             </div>
         );

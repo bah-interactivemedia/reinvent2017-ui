@@ -10,9 +10,9 @@ export default function routes() {
             path: '/account/confirmation/:confirmToken',
             component: HomePageContainer
         },
-            {
-                path: '/account/reset/:resetToken',
-                component: HomePageContainer
-            }]
+        {
+            path: '/account/reset/:resetToken',
+            component: HomePageContainer
+        }]
     };
 }

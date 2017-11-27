@@ -17,51 +17,15 @@ const propTypes = {
 };
 
 export class HomePageContainer extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            selection: false
-        };
-
-        this.selectedNew = this.selectedNew.bind(this);
-        this.selectedExisting = this.selectedExisting.bind(this);
-    }
-
-    selectedNew() {
-        this.setState({
-            selection: true
-        });
-    }
-
-    selectedExisting(e) {
-        this.setState({
-            selection: true
-        });
-
-        console.log(e);
-    }
-
     render() {
-        let shownActions = (
-            <TestSelection
-                selectedNew={this.selectedNew}
-                selectedExisting={this.selectedExisting} />
-        );
-        if (this.state.selection) {
-            shownActions = (
-                <FitnessTests />
-            );
-        }
-
         return (
             <div>
                 <div className="container-fluid container-track">
                     <h1 className="title">
                         FITNESS TESTS
                     </h1>
-                    <div className="container">
-                        {shownActions}
+                    <div className="container actions-holder">
+                        <FitnessTests />
                     </div>
                 </div>
                 <div className="container-fluid container-report">
