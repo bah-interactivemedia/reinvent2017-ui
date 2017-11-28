@@ -16,12 +16,14 @@ const propTypes = {
 export class FooterContainer extends React.Component {
     render() {
         return (
-            <footer>
-                <div className="footer-diagram">
-                    <Link to="/diagram">Diagram</Link>
-                </div>
-                <div className="copyright">
-                    &copy;2017 The National Fitness Foundation. All Rights Reserved.
+            <footer className="container-fluid">
+                <div className="row">
+                    <div className="footer-diagram col-6">
+                        <Link to="/diagram">Architecture Diagram</Link>
+                    </div>
+                    <div className="copyright col-6">
+                        &copy;2017 The National Fitness Foundation. All Rights Reserved.
+                    </div>
                 </div>
             </footer>
         );
