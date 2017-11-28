@@ -56,8 +56,8 @@ var config = {
             'process.env': encodedEnvConfig
         }),
         new InterpolateHtmlPlugin({
-            TITLE: 'National Fitness Foundation',
-            DESCRIPTION: 'Frontend Template'
+            TITLE: 'moreFIT',
+            DESCRIPTION: 'Frontend'
         }),
         new HtmlWebpackPlugin({
             inject: 'body',
