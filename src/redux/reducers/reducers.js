@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import trackReducer from './trackReducer';
+import studentsReducer from './studentsReducer';
 
 const appReducer = combineReducers({
-    track: trackReducer
+    students: studentsReducer
 });
 
 export default appReducer;

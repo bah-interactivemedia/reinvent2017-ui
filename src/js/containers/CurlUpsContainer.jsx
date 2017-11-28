@@ -8,24 +8,17 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import * as studentActions from '../actions/studentsAction';
 
 import StudentRow from '../components/StudentRow';
 
 const propTypes = {
-    students: PropTypes.array
+    studentsFetchData: PropTypes.func.isRequired,
+    studentList: PropTypes.array
 };
 
 const defaultProps = {
-    students: [
-        {
-            name: 'Michael Bray',
-            id: 1
-        },
-        {
-            name: 'Nat Burgwyn',
-            id: 2
-        }
-    ]
+    studentList: []
 };
 
 export class CurlUpsContainer extends React.Component {
@@ -35,6 +28,14 @@ export class CurlUpsContainer extends React.Component {
         this.submitCurls = this.submitCurls.bind(this);
     }
 
+    componentWillMount() {
+        this.getData();
+    }
+
+    getData() {
+        this.props.studentsFetchData();
+    }
+
     generateStudentRows(students) {
         const studentRows = [];
 
@@ -42,7 +43,7 @@ export class CurlUpsContainer extends React.Component {
             studentRows.push(
                 <StudentRow
                     {...student}
-                    key={student.name} />
+                    key={student.student_id} />
             );
         });
 
@@ -54,7 +55,7 @@ export class CurlUpsContainer extends React.Component {
     }
 
     render() {
-        const generateStudentRows = this.generateStudentRows(this.props.students);
+        const generateStudentRows = this.generateStudentRows(this.props.studentList);
 
         return (
             <div>
@@ -82,15 +83,9 @@ export class CurlUpsContainer extends React.Component {
 CurlUpsContainer.propTypes = propTypes;
 CurlUpsContainer.defaultProps = defaultProps;
 
-export default CurlUpsContainer;
-
-/* export default connect(
+ export default connect(
  (state) => ({
- location: state.navigation.discover.location,
- stateName: state.navigation.discover.stateName,
- stateData: state.navigation.discover.stateData,
- stateRecommendations: state.navigation.discover.stateRecommendations,
- topDestinations: state.navigation.discover.topDestinations
+    studentList: state.students.studentList,
  }),
- (dispatch) => bindActionCreators(discoverActions, dispatch)
- )(HomePageContainer); */
+    (dispatch) => bindActionCreators(studentActions, dispatch)
+ )(CurlUpsContainer); 

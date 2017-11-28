@@ -3,11 +3,10 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { browserHistory } from 'react-router';
 import { routerMiddleware } from 'react-router-redux';
 import reducers from './reducers';
-// import trackStore from '../src/trackStore';
+import studentsStore from './src/redux/studentsStore';
 
-// ...trackStore()
 const initialState = {
-
+    ...studentsStore()
 };
 
 const router = routerMiddleware(browserHistory);
