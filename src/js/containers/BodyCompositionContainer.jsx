@@ -1,5 +1,5 @@
 /*
- * MileRunContainer.jsx
+ * BodyCompositionContainer.jsx
  * Created by michaelbray on 11/27/17
  */
 
@@ -8,10 +8,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import getTime from 'date-fns/get_time';
-import differenceInSeconds from 'date-fns/difference_in_seconds';
 
-import StudentTimeRow from '../components/StudentTimeRow';
+import StudentBodyCompRow from '../components/StudentBodyCompRow';
 
 const propTypes = {
     students: PropTypes.array
@@ -30,21 +28,13 @@ const defaultProps = {
     ]
 };
 
-export class MileRunContainer extends React.Component {
+export class BodyCompositionContainer extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            timerHasStarted: false,
-            startTime: null,
-            runningTime: '00:00'
-        };
 
-        this.submitTimes = this.submitTimes.bind(this);
-        this.startTimer = this.startTimer.bind(this);
-        this.stopTimer = this.stopTimer.bind(this);
-        this.updateTime = this.updateTime.bind(this);
-        this.interval = null;
+        };
     }
 
     generateStudentRows(students) {
@@ -52,10 +42,8 @@ export class MileRunContainer extends React.Component {
 
         students.forEach((student) => {
             studentRows.push(
-                <StudentTimeRow
+                <StudentBodyCompRow
                     {...student}
-                    disabled={!this.state.timerHasStarted}
-                    time={this.state.runningTime}
                     key={student.name} />
             );
         });
@@ -63,53 +51,8 @@ export class MileRunContainer extends React.Component {
         return studentRows;
     }
 
-    submitTimes() {
-        console.log("here");
-    }
-
-    updateTime() {
-        const currentTime = Date.now();
-        const difference = differenceInSeconds(currentTime, this.state.startTime);
-
-        let minutes = Math.round(difference / 60);
-        let seconds = difference % 60;
-
-        if (minutes < 10) {
-            minutes = `0${minutes}`;
-        }
-
-        if (seconds < 10) {
-            seconds = `0${seconds}`;
-        }
-
-        this.setState({
-            runningTime: `${minutes}:${seconds}`
-        });
-    }
-
-    startTimer() {
-        this.setState({
-            timerHasStarted: true,
-            startTime: getTime(Date.now())
-        }, () => {
-            this.interval = setInterval(() => {
-                this.updateTime()
-            }, 1000);
-        });
-    }
-
-    stopTimer() {
-        clearInterval(this.interval);
-
-        this.setState({
-            timerHasStarted: false,
-            startTime: null,
-            runningTime: '00:00'
-        });
-    }
-
     render() {
-        const generateStudentRows = this.generateStudentRows(this.props.students);
+        const studentRows = this.generateStudentRows(this.props.students);
 
         let button = (
             <button
@@ -132,18 +75,37 @@ export class MileRunContainer extends React.Component {
             <div>
                 <div className="container-fluid container-track">
                     <h1 className="title">
-                        MILE RUN
+                        BODY COMPOSITION
                     </h1>
-                    <div className="time">
-                        <h2>
-                            {this.state.runningTime}
-                        </h2>
-                    </div>
-                    <div className="start-button-holder">
-                        {button}
+                    <div className="container rows-container">
+                        <div className="container student-headers">
+                            <div className="row justify-content-md-center">
+                                <div className="col col-lg-2 col-12">
+                                    Name
+                                </div>
+                                <div className="col col-lg-1 col-12">
+                                    Height (Feet)
+                                </div>
+                                <div className="col col-lg-1 col-12">
+                                    Height (Inches)
+                                </div>
+                                <div className="col col-lg-1 col-12">
+                                    Weight
+                                </div>
+                                <div className="col col-lg-1 col-12">
+                                    Triceps Skinfold
+                                </div>
+                                <div className="col col-lg-1 col-12">
+                                    Calf Skinfold
+                                </div>
+                                <div className="col col-lg-1 col-12">
+                                    Percent Body Fat
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div className="container rows-container">
-                        {generateStudentRows}
+                        {studentRows}
                     </div>
                     <div className="submit-holder">
                         <button
@@ -159,10 +121,10 @@ export class MileRunContainer extends React.Component {
     }
 }
 
-MileRunContainer.propTypes = propTypes;
-MileRunContainer.defaultProps = defaultProps;
+BodyCompositionContainer.propTypes = propTypes;
+BodyCompositionContainer.defaultProps = defaultProps;
 
-export default MileRunContainer;
+export default BodyCompositionContainer;
 
 /* export default connect(
  (state) => ({

@@ -72,10 +72,46 @@
     }
 
     .student-row {
-        margin-bottom: 10px;
+        margin-bottom: 20px;
+        min-height: 42px;
 
         .btn-danger {
             background-color: $red;
+        }
+    }
+
+    .body-comp {
+        input {
+            width: 100px;
+            text-align: center;
+        }
+    }
+
+    .student-headers .col {
+        text-align: center;
+    }
+
+    .student-headers {
+        display: none;
+    }
+
+    .student-label {
+        display: inline-block;
+    }
+
+    @media (min-width: 992px) {
+        .student-headers {
+            display: block;
+        }
+
+        .student-label {
+            display: none;
+        }
+
+        .body-comp {
+            input {
+                width: 50px;
+            }
         }
     }
 }
@@ -89,12 +125,12 @@
     }
 }
 
+.final-time {
+    font-size: 22px;
+}
+
 .start-button-holder {
     margin-bottom: 30px;
-
-    button {
-        margin-right: 20px;
-    }
 }
 
 .submit-holder {

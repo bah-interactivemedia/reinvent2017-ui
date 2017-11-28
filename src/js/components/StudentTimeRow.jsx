@@ -46,7 +46,7 @@ export class StudentTimeRow extends React.Component {
         let buttonOrTime = null;
         if (this.state.finalTime !== '') {
             buttonOrTime = (
-                <span>
+                <span className="final-time">
                     {this.state.finalTime}
                 </span>
             );
@@ -54,7 +54,7 @@ export class StudentTimeRow extends React.Component {
         else {
             buttonOrTime = (
                 <button
-                    className="btn btn-primary"
+                    className="btn"
                     disabled={this.props.disabled}
                     onClick={this.clickedFinish}>
                     Finished

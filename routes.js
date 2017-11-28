@@ -1,5 +1,6 @@
 import AppContainer from './src/js/containers/App';
 import ReportingContainer from './src/js/containers/ReportingContainer';
+import BodyCompositionContainer from './src/js/containers/BodyCompositionContainer';
 import MileRunContainer from './src/js/containers/MileRunContainer';
 import CurlUpsContainer from './src/js/containers/CurlUpsContainer';
 
@@ -14,6 +15,12 @@ export default function routes2({dispatch}) {
     childRoutes[childRoutes.length] = {
         path: '/reports',
         component: ReportingContainer
+    };
+
+    // add Body Composition
+    childRoutes[childRoutes.length] = {
+        path: '/bodyComposition',
+        component: BodyCompositionContainer
     };
 
     // add Mile
