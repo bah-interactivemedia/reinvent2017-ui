@@ -32,13 +32,13 @@ export class ReportingContainer extends React.Component {
         <div className="container-fluid">
             <div className="row justify-content-md-center">
                 <div className="col col-lg-4">
-                    <ReportingItem title="Students">
-                        <ReportingValue value="69" />
+                    <ReportingItem title="Average BMI">
+                        <ReportingValue value="22.5" />
                     </ReportingItem>
                 </div>
                 <div className="col col-lg-4">
-                    <ReportingItem title="Avg BMI">
-                        <ReportingValue value="22.5" />
+                    <ReportingItem title="Average Body Fat %">
+                        <ReportingValue value="23%" />
                     </ReportingItem>
                 </div>
             </div>
