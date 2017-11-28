@@ -41,21 +41,28 @@ export class StudentTimeRow extends React.Component {
     }
 
     render() {
-        let buttonOrTime = null;
+        let finishTime = null;
+        let finishButton =  (
+            <button
+                className="btn"
+                disabled={this.props.disabled}
+                onClick={this.clickedFinish}>
+                Finished
+            </button>
+        );
+
         if (this.state.finalTime !== '') {
-            buttonOrTime = (
+            finishTime = (
                 <span className="final-time">
                     {this.state.finalTime}
                 </span>
             );
-        }
-        else {
-            buttonOrTime = (
+
+            finishButton = (
                 <button
                     className="btn"
-                    disabled={this.props.disabled}
                     onClick={this.clickedFinish}>
-                    Finished
+                    Update Time
                 </button>
             );
         }
@@ -70,7 +77,10 @@ export class StudentTimeRow extends React.Component {
                             {name}
                         </div>
                         <div className="col col-lg-3">
-                            {buttonOrTime}
+                            {finishTime}
+                        </div>
+                        <div className="col col-lg-3">
+                            {finishButton}
                         </div>
                     </div>
                 </div>
