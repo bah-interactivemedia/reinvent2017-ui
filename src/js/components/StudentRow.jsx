@@ -19,7 +19,7 @@ const defaultProps = {
 
 export class StudentRow extends React.Component {
     render() {
-        const name = `${this.props.student_first} ${this.props.student_last}`;
+        const name = `${this.props.studentFirst} ${this.props.studentLast}`;
         return (
             <div>
                 <div className="container student-row">
@@ -28,7 +28,7 @@ export class StudentRow extends React.Component {
                             {name}
                         </div>
                         <div className="col col-lg-3">
-                            <Counter id={this.props.student_id} />
+                            <Counter id={this.props.studentId} />
                         </div>
                     </div>
                 </div>

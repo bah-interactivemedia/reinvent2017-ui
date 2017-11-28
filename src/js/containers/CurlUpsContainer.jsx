@@ -14,6 +14,8 @@ import StudentRow from '../components/StudentRow';
 
 const propTypes = {
     studentsFetchData: PropTypes.func.isRequired,
+    studentsPostCurls: PropTypes.func.isRequired,
+    studentsPostMile: PropTypes.func.isRequired,
     studentList: PropTypes.array
 };
 
@@ -43,7 +45,7 @@ export class CurlUpsContainer extends React.Component {
             studentRows.push(
                 <StudentRow
                     {...student}
-                    key={student.student_id} />
+                    key={student.studentId} />
             );
         });
 
@@ -51,7 +53,7 @@ export class CurlUpsContainer extends React.Component {
     }
 
     submitCurls() {
-        console.log("here");
+        this.props.studentsPostCurls(1,1,1);
     }
 
     render() {

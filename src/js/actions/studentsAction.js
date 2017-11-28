@@ -24,3 +24,49 @@ export const studentsFetchData = () => {
         }
     };
 };
+
+export const studentsPostCurlsSuccess = (students) => {
+    return {
+        type: 'STUDENTS_POST_CURLS_SUCCESS',
+        studentList: students
+    };
+};
+
+export const studentsPostCurls = (testId = 1, studentId, curls) => {
+    return (dispatch) => {
+
+        // call api
+        try {
+            const body = { studentTestActivity1FieldTotal: curls.toString() };
+            axios.post(`http://reinvent2017api-env.us-east-1.elasticbeanstalk.com/tests/${testId}/${studentId}/curls`, body)
+            .then((response) => {
+                return response.data;
+              })
+        }
+        catch (error) {
+            // eslint-disable-next-line no-console
+            console.log(error);
+        }
+    };
+};
+
+export const studentsPostMile = (testId = 1, studentId, minutes, seconds) => {
+    return (dispatch) => {
+
+        // call api
+        try {
+            const body = { studentTestActivity2FieldMinutes: minutes.toString(),
+                            studentTestActivity2FieldSeconds: seconds.toString() 
+            };
+            axios.post(
+                `http://reinvent2017api-env.us-east-1.elasticbeanstalk.com/tests/${testId}/${studentId}/mile`, body)
+                .then((response) => {
+                    return response.data;
+                  })
+        }
+        catch (error) {
+            // eslint-disable-next-line no-console
+            console.log(error);
+        }
+    };
+};
