@@ -13,7 +13,7 @@ const PATHS = {
 };
 
 // inject environment specific configuation into build
-const envConfig = require('./env.js');
+const envConfig = require('./env.dev.js');
 console.log('envConfig=' + JSON.stringify(envConfig));
 // encode config values for DefinePlugin injection
 let encodedEnvConfig = {};
