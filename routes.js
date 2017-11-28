@@ -3,6 +3,7 @@ import ReportingContainer from './src/js/containers/ReportingContainer';
 import BodyCompositionContainer from './src/js/containers/BodyCompositionContainer';
 import MileRunContainer from './src/js/containers/MileRunContainer';
 import CurlUpsContainer from './src/js/containers/CurlUpsContainer';
+import DiagramContainer from './src/js/containers/DiagramContainer';
 
 import routes from './src/routes';
 
@@ -33,6 +34,12 @@ export default function routes2({dispatch}) {
     childRoutes[childRoutes.length] = {
         path: '/curlUps',
         component: CurlUpsContainer
+    };
+
+    // add Diagram
+    childRoutes[childRoutes.length] = {
+        path: '/diagram',
+        component: DiagramContainer
     };
 
     // add index route and finalize

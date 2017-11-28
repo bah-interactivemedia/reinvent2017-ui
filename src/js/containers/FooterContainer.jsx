@@ -17,6 +17,9 @@ export class FooterContainer extends React.Component {
     render() {
         return (
             <footer>
+                <div className="footer-diagram">
+                    <Link to="/diagram">Diagram</Link>
+                </div>
                 <div className="copyright">
                     &copy;2017 The National Fitness Foundation. All Rights Reserved.
                 </div>
