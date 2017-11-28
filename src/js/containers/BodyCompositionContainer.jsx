@@ -8,24 +8,18 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import * as studentActions from '../actions/studentsAction';
 
 import StudentBodyCompRow from '../components/StudentBodyCompRow';
 
 const propTypes = {
-    students: PropTypes.array
+    studentsFetchData: PropTypes.func.isRequired,
+    studentsPostCurls: PropTypes.func.isRequired,
+    studentList: PropTypes.array
 };
 
 const defaultProps = {
-    students: [
-        {
-            name: 'Michael Bray',
-            id: 1
-        },
-        {
-            name: 'Nat Burgwyn',
-            id: 2
-        }
-    ]
+    studentList: []
 };
 
 export class BodyCompositionContainer extends React.Component {
@@ -37,6 +31,14 @@ export class BodyCompositionContainer extends React.Component {
         };
     }
 
+    componentWillMount() {
+        this.getData();
+    }
+
+    getData() {
+        this.props.studentsFetchData();
+    }
+
     generateStudentRows(students) {
         const studentRows = [];
 
@@ -44,7 +46,7 @@ export class BodyCompositionContainer extends React.Component {
             studentRows.push(
                 <StudentBodyCompRow
                     {...student}
-                    key={student.name} />
+                    key={student.studentId} />
             );
         });
 
@@ -52,7 +54,7 @@ export class BodyCompositionContainer extends React.Component {
     }
 
     render() {
-        const studentRows = this.generateStudentRows(this.props.students);
+        const studentRows = this.generateStudentRows(this.props.studentList);
 
         let button = (
             <button
@@ -124,15 +126,9 @@ export class BodyCompositionContainer extends React.Component {
 BodyCompositionContainer.propTypes = propTypes;
 BodyCompositionContainer.defaultProps = defaultProps;
 
-export default BodyCompositionContainer;
-
-/* export default connect(
+export default connect(
  (state) => ({
- location: state.navigation.discover.location,
- stateName: state.navigation.discover.stateName,
- stateData: state.navigation.discover.stateData,
- stateRecommendations: state.navigation.discover.stateRecommendations,
- topDestinations: state.navigation.discover.topDestinations
+    studentList: state.students.studentList,
  }),
- (dispatch) => bindActionCreators(discoverActions, dispatch)
- )(HomePageContainer); */
+ (dispatch) => bindActionCreators(studentActions, dispatch)
+ )(BodyCompositionContainer);
