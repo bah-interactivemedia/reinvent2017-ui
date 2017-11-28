@@ -136,13 +136,13 @@ export class MileRunContainer extends React.Component {
                     <h1 className="title">
                         MILE RUN
                     </h1>
+                    <div className="start-button-holder">
+                        {button}
+                    </div>
                     <div className="time">
                         <h2>
                             {this.state.runningTime}
                         </h2>
-                    </div>
-                    <div className="start-button-holder">
-                        {button}
                     </div>
                     <div className="container rows-container">
                         {generateStudentRows}

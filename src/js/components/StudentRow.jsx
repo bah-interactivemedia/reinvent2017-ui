@@ -14,7 +14,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-    student: { }
+    student: {}
 };
 
 export class StudentRow extends React.Component {
