@@ -5,7 +5,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as studentActions from '../actions/studentsAction';
@@ -14,7 +14,7 @@ import StudentBodyCompRow from '../components/StudentBodyCompRow';
 
 const propTypes = {
     studentsFetchData: PropTypes.func.isRequired,
-    studentsPostCurls: PropTypes.func.isRequired,
+    studentsPostBodyComp: PropTypes.func.isRequired,
     studentList: PropTypes.array
 };
 
@@ -29,6 +29,8 @@ export class BodyCompositionContainer extends React.Component {
         this.state = {
 
         };
+
+        this.submitData = this.submitData.bind(this);
     }
 
     componentWillMount() {
@@ -53,25 +55,13 @@ export class BodyCompositionContainer extends React.Component {
         return studentRows;
     }
 
+    submitData() {
+        this.props.studentsPostBodyComp();
+        browserHistory.push('/');
+    }
+
     render() {
         const studentRows = this.generateStudentRows(this.props.studentList);
-
-        let button = (
-            <button
-                className="btn btn-success start-button"
-                onClick={this.startTimer}>
-                Start Timer
-            </button>
-        );
-        if (this.state.timerHasStarted) {
-            button = (
-                <button
-                    className="btn btn-danger stop-button"
-                    onClick={this.stopTimer}>
-                    Stop Timer
-                </button>
-            );
-        }
 
         return (
             <div>
@@ -113,7 +103,7 @@ export class BodyCompositionContainer extends React.Component {
                         <button
                             className="btn btn-primary"
                             type="submit"
-                            onClick={this.submitTimes}>
+                            onClick={this.submitData}>
                             Submit
                         </button>
                     </div>

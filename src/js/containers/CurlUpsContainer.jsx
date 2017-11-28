@@ -5,7 +5,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as studentActions from '../actions/studentsAction';
@@ -53,6 +53,7 @@ export class CurlUpsContainer extends React.Component {
 
     submitCurls() {
         this.props.studentsPostCurls(1,1,1);
+        browserHistory.push('/');
     }
 
     render() {

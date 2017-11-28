@@ -41,7 +41,7 @@ export const studentsPostCurls = (testId = 1, studentId, curls) => {
             axios.post(`http://reinvent2017api-env.us-east-1.elasticbeanstalk.com/tests/${testId}/${studentId}/curls`, body)
             .then((response) => {
                 return response.data;
-              })
+              });
         }
         catch (error) {
             // eslint-disable-next-line no-console
@@ -62,7 +62,7 @@ export const studentsPostMile = (testId = 1, studentId, minutes, seconds) => {
                 `http://reinvent2017api-env.us-east-1.elasticbeanstalk.com/tests/${testId}/${studentId}/mile`, body)
                 .then((response) => {
                     return response.data;
-                  })
+                  });
         }
         catch (error) {
             // eslint-disable-next-line no-console
@@ -70,3 +70,20 @@ export const studentsPostMile = (testId = 1, studentId, minutes, seconds) => {
         }
     };
 };
+
+export const studentsPostBodyComp = (studentId, args) => {
+    return (dispatch) => {
+        // call api
+        try {
+            const body = { args };
+            axios.post(`http://reinvent2017api-env.us-east-1.elasticbeanstalk.com/students/${studentId}/attributes`, body)
+                .then((response) => {
+                    return response.data;
+                });
+        }
+        catch (error) {
+            // eslint-disable-next-line no-console
+            console.log(error);
+        }
+    }
+}

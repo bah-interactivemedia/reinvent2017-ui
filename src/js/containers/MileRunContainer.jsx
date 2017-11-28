@@ -5,7 +5,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import getTime from 'date-fns/get_time';
@@ -66,7 +66,8 @@ export class MileRunContainer extends React.Component {
     }
 
     submitTimes() {
-        this.props.studentsPostMile(1,1,7, 30);
+        this.props.studentsPostMile(1,1,7,30);
+        browserHistory.push('/');
     }
 
     updateTime() {
