@@ -15,7 +15,6 @@ import StudentRow from '../components/StudentRow';
 const propTypes = {
     studentsFetchData: PropTypes.func.isRequired,
     studentsPostCurls: PropTypes.func.isRequired,
-    studentsPostMile: PropTypes.func.isRequired,
     studentList: PropTypes.array
 };
 

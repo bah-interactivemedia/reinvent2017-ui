@@ -10,24 +10,18 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import getTime from 'date-fns/get_time';
 import differenceInSeconds from 'date-fns/difference_in_seconds';
+import * as studentActions from '../actions/studentsAction';
 
 import StudentTimeRow from '../components/StudentTimeRow';
 
 const propTypes = {
-    students: PropTypes.array
+    studentsFetchData: PropTypes.func.isRequired,
+    studentsPostMile: PropTypes.func.isRequired,
+    studentList: PropTypes.array
 };
 
 const defaultProps = {
-    students: [
-        {
-            name: 'Michael Bray',
-            id: 1
-        },
-        {
-            name: 'Nat Burgwyn',
-            id: 2
-        }
-    ]
+    studentList: []
 };
 
 export class MileRunContainer extends React.Component {
@@ -47,6 +41,14 @@ export class MileRunContainer extends React.Component {
         this.interval = null;
     }
 
+    componentWillMount() {
+        this.getData();
+    }
+
+    getData() {
+        this.props.studentsFetchData();
+    }
+
     generateStudentRows(students) {
         const studentRows = [];
 
@@ -56,7 +58,7 @@ export class MileRunContainer extends React.Component {
                     {...student}
                     disabled={!this.state.timerHasStarted}
                     time={this.state.runningTime}
-                    key={student.name} />
+                    key={student.studentId} />
             );
         });
 
@@ -64,7 +66,7 @@ export class MileRunContainer extends React.Component {
     }
 
     submitTimes() {
-        console.log("here");
+        this.props.studentsPostMile(1,1,7, 30);
     }
 
     updateTime() {
@@ -109,7 +111,7 @@ export class MileRunContainer extends React.Component {
     }
 
     render() {
-        const generateStudentRows = this.generateStudentRows(this.props.students);
+        const generateStudentRows = this.generateStudentRows(this.props.studentList);
 
         let button = (
             <button
@@ -162,15 +164,9 @@ export class MileRunContainer extends React.Component {
 MileRunContainer.propTypes = propTypes;
 MileRunContainer.defaultProps = defaultProps;
 
-export default MileRunContainer;
-
-/* export default connect(
+export default connect(
  (state) => ({
- location: state.navigation.discover.location,
- stateName: state.navigation.discover.stateName,
- stateData: state.navigation.discover.stateData,
- stateRecommendations: state.navigation.discover.stateRecommendations,
- topDestinations: state.navigation.discover.topDestinations
+    studentList: state.students.studentList,
  }),
- (dispatch) => bindActionCreators(discoverActions, dispatch)
- )(HomePageContainer); */
+ (dispatch) => bindActionCreators(studentActions, dispatch)
+ )(MileRunContainer); 

@@ -18,8 +18,6 @@ const propTypes = {
 
 const defaultProps = {
     student: {
-        name: 'Michael Bray',
-        id: 1
     },
     disabled: true,
     time: ''
@@ -62,12 +60,14 @@ export class StudentTimeRow extends React.Component {
             );
         }
 
+        const name = `${this.props.studentFirst} ${this.props.studentLast}`;
+
         return (
             <div>
                 <div className="container student-row">
                     <div className="row justify-content-md-center">
                         <div className="col col-lg-3">
-                            {this.props.name}
+                            {name}
                         </div>
                         <div className="col col-lg-3">
                             {buttonOrTime}
