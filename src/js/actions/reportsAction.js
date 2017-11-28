@@ -7,12 +7,12 @@ export const reportsFetchSuccess = (reports) => {
     };
 };
 
-export const reportsFetchData = () => {
+export const reportsFetchData = (classId = 1) => {
     return async (dispatch) => {
 
         // call api
         try {
-            const response = await axios.get('http://reinvent2017api-env.us-east-1.elasticbeanstalk.com/reports');
+            const response = await axios.get(`http://reinvent2017api-env.us-east-1.elasticbeanstalk.com/reports/class/${classId}`);
             const data = response.data;
             // const data = [{name: 'Michael Bray',id: 1}, {name: 'Nat Burgwyn',id: 2}];
 
