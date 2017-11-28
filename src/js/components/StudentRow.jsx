@@ -14,10 +14,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-    student: {
-        name: 'Michael Bray',
-        id: 1
-    }
+    student: { }
 };
 
 export class StudentRow extends React.Component {
@@ -28,7 +25,7 @@ export class StudentRow extends React.Component {
                 <div className="container student-row">
                     <div className="row justify-content-md-center">
                         <div className="col col-lg-3">
-                            {this.props.name}
+                            {this.props.student_first} {this.props.student_last}
                         </div>
                         <div className="col col-lg-3">
                             <Counter id={this.props.id} />
