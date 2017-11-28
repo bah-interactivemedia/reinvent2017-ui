@@ -7,7 +7,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const propTypes = {
-    id: PropTypes.number
+    id: PropTypes.string
 };
 
 const defaultProps = {
