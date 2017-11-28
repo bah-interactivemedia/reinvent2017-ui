@@ -20,6 +20,7 @@ export class NavbarContainer extends React.Component {
                 <a className="navbar-brand" href="/">
                     <img className="navbar-icon" src="../../img/Logo.png" height={100} />
                 </a>
+                <span className="site-title">moreFIT</span>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
