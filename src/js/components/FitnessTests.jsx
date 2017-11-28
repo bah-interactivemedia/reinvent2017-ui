@@ -18,7 +18,7 @@ export default class FitnessTests extends React.Component {
                 <div className="col-4">
                     <Link className="track-link" to="/bodyComposition">
                         <span className="oi oi-person" title="person" aria-hidden="true"></span>
-                        <p>Body</p>
+                        <p>Body Composition</p>
                     </Link>
                 </div>
                 <div className="col-4">
