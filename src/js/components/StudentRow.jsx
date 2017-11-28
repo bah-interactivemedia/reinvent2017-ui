@@ -19,16 +19,16 @@ const defaultProps = {
 
 export class StudentRow extends React.Component {
     render() {
-
+        const name = `${this.props.student_first} ${this.props.student_last}`;
         return (
             <div>
                 <div className="container student-row">
                     <div className="row justify-content-md-center">
                         <div className="col col-lg-3">
-                            {this.props.student_first} {this.props.student_last}
+                            {name}
                         </div>
                         <div className="col col-lg-3">
-                            <Counter id={this.props.id} />
+                            <Counter id={this.props.student_id} />
                         </div>
                     </div>
                 </div>
